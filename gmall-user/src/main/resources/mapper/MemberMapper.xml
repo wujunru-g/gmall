@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.wujunru.gmall.user.mapper.MemberMapper" >
+    <resultMap id="BaseResultMap" type="com.wujunru.gmall.bean.Member" >
+        <id column="id" property="id" jdbcType="BIGINT" />
+        <result column="member_level_id" property="member_level_id" jdbcType="BIGINT" />
+        <result column="username" property="username" jdbcType="VARCHAR" />
+        <result column="password" property="password" jdbcType="VARCHAR" />
+        <result column="nickname" property="nickname" jdbcType="VARCHAR" />
+        <result column="phone" property="phone" jdbcType="VARCHAR" />
+        <result column="status" property="status" jdbcType="INTEGER" />
+        <result column="create_time" property="create_time" jdbcType="TIMESTAMP" />
+        <result column="icon" property="icon" jdbcType="VARCHAR" />
+        <result column="gender" property="gender" jdbcType="INTEGER" />
+        <result column="birthday" property="birthday" jdbcType="DATE" />
+        <result column="city" property="city" jdbcType="VARCHAR" />
+        <result column="job" property="job" jdbcType="VARCHAR" />
+        <result column="personalized_signature" property="personalized_signature" jdbcType="VARCHAR" />
+        <result column="source_type" property="source_type" jdbcType="INTEGER" />
+        <result column="integration" property="integration" jdbcType="INTEGER" />
+        <result column="growth" property="growth" jdbcType="INTEGER" />
+        <result column="luckey_count" property="luckey_count" jdbcType="INTEGER" />
+        <result column="history_integration" property="history_integration" jdbcType="INTEGER" />
+    </resultMap>
+    <sql id="Base_Column_List" >
+    id, member_level_id, username, password, nickname, phone,status,create_time,icon,gender,
+    birthday,city,job,personalized_signature,source_type,integration,growth,luckey_count,history_integration
+  </sql>
+  <select id="selectGetAll" resultMap="BaseResultMap" parameterType="com.wujunru.gmall.bean.Member" >
+        select
+        <include refid="Base_Column_List" />
+        from ums_member
+    </select>
+    <!--  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+     delete from ums_member_feedback
+     where id = #{id,jdbcType=BIGINT}
+   </delete>
+     <insert id="insert" parameterType="com.shop.pojo.Ums_member_feedback" >
+     insert into ums_member_feedback (id, member_id, question_describe,
+       pic, question_type, member_phone
+       )
+     values (#{id,jdbcType=BIGINT}, #{memberId,jdbcType=BIGINT}, #{questionDescribe,jdbcType=VARCHAR},
+       #{pic,jdbcType=VARCHAR}, #{questionType,jdbcType=INTEGER}, #{memberPhone,jdbcType=VARCHAR}
+       )
+   </insert>
+     <insert id="insertSelective" parameterType="com.shop.pojo.Ums_member_feedback" >
+         insert into ums_member_feedback
+         <trim prefix="(" suffix=")" suffixOverrides="," >
+             <if test="id != null" >
+                 id,
+             </if>
+             <if test="memberId != null" >
+                 member_id,
+             </if>
+             <if test="questionDescribe != null" >
+                 question_describe,
+             </if>
+             <if test="pic != null" >
+                 pic,
+             </if>
+             <if test="questionType != null" >
+                 question_type,
+             </if>
+             <if test="memberPhone != null" >
+                 member_phone,
+             </if>
+         </trim>
+         <trim prefix="values (" suffix=")" suffixOverrides="," >
+             <if test="id != null" >
+                 #{id,jdbcType=BIGINT},
+             </if>
+             <if test="memberId != null" >
+                 #{memberId,jdbcType=BIGINT},
+             </if>
+             <if test="questionDescribe != null" >
+                 #{questionDescribe,jdbcType=VARCHAR},
+             </if>
+             <if test="pic != null" >
+                 #{pic,jdbcType=VARCHAR},
+             </if>
+             <if test="questionType != null" >
+                 #{questionType,jdbcType=INTEGER},
+             </if>
+             <if test="memberPhone != null" >
+                 #{memberPhone,jdbcType=VARCHAR},
+             </if>
+         </trim>
+     </insert>
+     <update id="updateByPrimaryKeySelective" parameterType="com.shop.pojo.Ums_member_feedback" >
+         update ums_member_feedback
+         <set >
+             <if test="memberId != null" >
+                 member_id = #{memberId,jdbcType=BIGINT},
+             </if>
+             <if test="questionDescribe != null" >
+                 question_describe = #{questionDescribe,jdbcType=VARCHAR},
+             </if>
+             <if test="pic != null" >
+                 pic = #{pic,jdbcType=VARCHAR},
+             </if>
+             <if test="questionType != null" >
+                 question_type = #{questionType,jdbcType=INTEGER},
+             </if>
+             <if test="memberPhone != null" >
+                 member_phone = #{memberPhone,jdbcType=VARCHAR},
+             </if>
+         </set>
+         where id = #{id,jdbcType=BIGINT}
+     </update>
+     <update id="updateByPrimaryKey" parameterType="com.shop.pojo.Ums_member_feedback" >
+     update ums_member_feedback
+     set member_id = #{memberId,jdbcType=BIGINT},
+       question_describe = #{questionDescribe,jdbcType=VARCHAR},
+       pic = #{pic,jdbcType=VARCHAR},
+       question_type = #{questionType,jdbcType=INTEGER},
+       member_phone = #{memberPhone,jdbcType=VARCHAR}
+     where id = #{id,jdbcType=BIGINT}
+   </update>-->
+</mapper>
