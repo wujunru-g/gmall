@@ -31,6 +31,21 @@
         <include refid="Base_Column_List" />
         from ums_member
     </select>
+    <select id="selectById"  resultType="map" parameterType="java.lang.Long" >
+       select
+       b.id,
+       b.member_id,
+       b.name,
+       b.phone_number,
+       b.post_code,
+       b.province,
+       b.city,
+       b.region,
+       b.detail_address
+       from ums_member as a
+       left join ums_member_receive_address as b on a.id=b.member_id
+       where  b.member_id=#{memberID,jdbcType=BIGINT}
+    </select>
     <!--  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
      delete from ums_member_feedback
      where id = #{id,jdbcType=BIGINT}

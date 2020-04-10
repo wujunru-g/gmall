@@ -1,6 +1,7 @@
 package com.wujunru.gmall.user.controller;
 
 import com.wujunru.gmall.bean.Member;
+import com.wujunru.gmall.bean.MemberAddress;
 import com.wujunru.gmall.service.MemberService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -16,7 +17,13 @@ public class MemberController {
 
     @RequestMapping("/gmall/getUserAll")
     @ResponseBody
-    public List<Member> getUser(){
+    public List<Member> getUserAll(){
         return memberService.selectGetAll();
+    }
+
+    @RequestMapping("/gmall/getById")
+    @ResponseBody
+    public List<MemberAddress> getUserAddressById(Long memberID){
+        return memberService.selectById(memberID);
     }
 }
