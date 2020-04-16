@@ -1,8 +1,9 @@
 package com.wujunru.gmall.bean;
 
+import java.io.Serializable;
 import java.util.Date;
 
-public class Member {
+public class Member implements Serializable {
     private Long id;
     private Long member_level_id;
     private String username;

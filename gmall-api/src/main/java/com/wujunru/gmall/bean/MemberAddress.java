@@ -1,6 +1,8 @@
 package com.wujunru.gmall.bean;
 
-public class MemberAddress {
+import java.io.Serializable;
+
+public class MemberAddress implements Serializable {
     private Long id;
     private Long member_id;
     private String name;

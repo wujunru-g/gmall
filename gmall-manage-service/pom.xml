@@ -9,9 +9,9 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>com.wujunru.gmall</groupId>
-    <artifactId>gmall-user</artifactId>
+    <artifactId>gmall-manage-service</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>gmall-user</name>
+    <name>gmall-manage-service</name>
     <description>Demo project for Spring Boot</description>
 
     <properties>

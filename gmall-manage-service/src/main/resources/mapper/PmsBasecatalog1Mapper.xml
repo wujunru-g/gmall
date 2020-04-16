@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.wujunru.gmall.manage.mapper.PmsBasecatalog1Mapper" >
+    <resultMap id="BaseResultMap" type="com.wujunru.gmall.bean.PmsBasecatalog1" >
+        <id column="id" property="id" jdbcType="INTEGER" />
+        <result column="name" property="name" jdbcType="VARCHAR" />
+    </resultMap>
+    <sql id="Base_Column_List" >
+    id, name
+  </sql>
+    <select id="selectGetAll" resultMap="BaseResultMap" parameterType="com.wujunru.gmall.bean.PmsBasecatalog1" >
+        select
+        <include refid="Base_Column_List" />
+        from pms_base_catalog1
+    </select>
+    <!--  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+     delete from ums_member_feedback
+     where id = #{id,jdbcType=BIGINT}
+   </delete>
+     <insert id="insert" parameterType="com.shop.pojo.Ums_member_feedback" >
+     insert into ums_member_feedback (id, member_id, question_describe,
+       pic, question_type, member_phone
+       )
+     values (#{id,jdbcType=BIGINT}, #{memberId,jdbcType=BIGINT}, #{questionDescribe,jdbcType=VARCHAR},
+       #{pic,jdbcType=VARCHAR}, #{questionType,jdbcType=INTEGER}, #{memberPhone,jdbcType=VARCHAR}
+       )
+   </insert>
+     <insert id="insertSelective" parameterType="com.shop.pojo.Ums_member_feedback" >
+         insert into ums_member_feedback
+         <trim prefix="(" suffix=")" suffixOverrides="," >
+             <if test="id != null" >
+                 id,
+             </if>
+             <if test="memberId != null" >
+                 member_id,
+             </if>
+             <if test="questionDescribe != null" >
+                 question_describe,
+             </if>
+             <if test="pic != null" >
+                 pic,
+             </if>
+             <if test="questionType != null" >
+                 question_type,
+             </if>
+             <if test="memberPhone != null" >
+                 member_phone,
+             </if>
+         </trim>
+         <trim prefix="values (" suffix=")" suffixOverrides="," >
+             <if test="id != null" >
+                 #{id,jdbcType=BIGINT},
+             </if>
+             <if test="memberId != null" >
+                 #{memberId,jdbcType=BIGINT},
+             </if>
+             <if test="questionDescribe != null" >
+                 #{questionDescribe,jdbcType=VARCHAR},
+             </if>
+             <if test="pic != null" >
+                 #{pic,jdbcType=VARCHAR},
+             </if>
+             <if test="questionType != null" >
+                 #{questionType,jdbcType=INTEGER},
+             </if>
+             <if test="memberPhone != null" >
+                 #{memberPhone,jdbcType=VARCHAR},
+             </if>
+         </trim>
+     </insert>
+     <update id="updateByPrimaryKeySelective" parameterType="com.shop.pojo.Ums_member_feedback" >
+         update ums_member_feedback
+         <set >
+             <if test="memberId != null" >
+                 member_id = #{memberId,jdbcType=BIGINT},
+             </if>
+             <if test="questionDescribe != null" >
+                 question_describe = #{questionDescribe,jdbcType=VARCHAR},
+             </if>
+             <if test="pic != null" >
+                 pic = #{pic,jdbcType=VARCHAR},
+             </if>
+             <if test="questionType != null" >
+                 question_type = #{questionType,jdbcType=INTEGER},
+             </if>
+             <if test="memberPhone != null" >
+                 member_phone = #{memberPhone,jdbcType=VARCHAR},
+             </if>
+         </set>
+         where id = #{id,jdbcType=BIGINT}
+     </update>
+     <update id="updateByPrimaryKey" parameterType="com.shop.pojo.Ums_member_feedback" >
+     update ums_member_feedback
+     set member_id = #{memberId,jdbcType=BIGINT},
+       question_describe = #{questionDescribe,jdbcType=VARCHAR},
+       pic = #{pic,jdbcType=VARCHAR},
+       question_type = #{questionType,jdbcType=INTEGER},
+       member_phone = #{memberPhone,jdbcType=VARCHAR}
+     where id = #{id,jdbcType=BIGINT}
+   </update>-->
+</mapper>
