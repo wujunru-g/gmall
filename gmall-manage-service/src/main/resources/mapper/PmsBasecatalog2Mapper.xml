@@ -9,10 +9,11 @@
     <sql id="Base_Column_List" >
     id, name,catalog1_id
   </sql>
-    <select id="selectGetAll" resultMap="BaseResultMap" parameterType="com.wujunru.gmall.bean.PmsBasecatalog2" >
+    <select id="selectBycatalog1Id" resultMap="BaseResultMap" parameterType="com.wujunru.gmall.bean.PmsBasecatalog2" >
         select
         <include refid="Base_Column_List" />
         from pms_base_catalog2
+        where catalog1_id = #{catalog1Id,jdbcType=INTEGER}
     </select>
     <!--  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
      delete from ums_member_feedback
