@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.wujunru.gmall.manage.mapper.PmsProductSaleAttrMapper" >
+    <resultMap id="BaseResultMap" type="com.wujunru.gmall.bean.PmsProductSaleAttr" >
+        <id column="id" property="id" jdbcType="BIGINT" />
+        <result column="product_id" property="productId" jdbcType="BIGINT" />
+        <result column="sale_attr_id" property="saleAttrId" jdbcType="VARCHAR" />
+        <result column="sale_attr_name" property="saleAttrName" jdbcType="VARCHAR" />
+    </resultMap>
+    <sql id="Base_Column_List" >
+    id, product_id,sale_attr_id,sale_attr_name
+  </sql>
+        <select id="selectSaleAttrByProductId" resultMap="BaseResultMap" parameterType="com.wujunru.gmall.bean.PmsProductSaleAttr" >
+            select
+            <include refid="Base_Column_List" />
+            from pms_product_sale_attr
+            where product_id = #{productId,jdbcType=BIGINT}
+        </select>
+
+    <insert id="insertSelectiveSpuSale" parameterType="com.wujunru.gmall.bean.PmsProductSaleAttr">
+        insert into pms_product_sale_attr
+        <trim prefix="(" suffix=")" suffixOverrides="," >
+            <if test="id != null" >
+                id,
+            </if>
+            <if test="productId != null" >
+                product_id,
+            </if>
+            <if test="saleAttrId != null" >
+                sale_attr_id,
+            </if>
+            <if test="saleAttrName != null" >
+                sale_attr_name,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides="," >
+            <if test="id != null" >
+                #{id},
+            </if>
+            <if test="productId != null" >
+                #{productId},
+            </if>
+            <if test="saleAttrId != null" >
+                #{saleAttrId},
+            </if>
+            <if test="saleAttrName != null " >
+                #{saleAttrName},
+            </if>
+        </trim>
+    </insert>
+    <!--  <update id="updateByPrimaryKeySelective" parameterType="com.wujunru.gmall.bean.PmsBaseAttrValue" >
+         update pms_base_attr_info
+         <set >
+             <if test="attrName != null" >
+                 attr_name = #{attrName,jdbcType=VARCHAR},
+             </if>
+             <if test="catalog3Id != null" >
+                 catalog3_id = #{catalog3Id,jdbcType=VARCHAR},
+             </if>
+             <if test="isEnabled != null" >
+                 is_enabled = #{isEnabled,jdbcType=INTEGER},
+             </if>
+         </set>
+         where id = #{id,jdbcType=BIGINT}
+     </update>-->
+    <!--  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+     delete from ums_member_feedback
+     where id = #{id,jdbcType=BIGINT}
+   </delete>
+     <insert id="insert" parameterType="com.shop.pojo.Ums_member_feedback" >
+     insert into ums_member_feedback (id, member_id, question_describe,
+       pic, question_type, member_phone
+       )
+     values (#{id,jdbcType=BIGINT}, #{memberId,jdbcType=BIGINT}, #{questionDescribe,jdbcType=VARCHAR},
+       #{pic,jdbcType=VARCHAR}, #{questionType,jdbcType=INTEGER}, #{memberPhone,jdbcType=VARCHAR}
+       )
+   </insert>
+
+
+     <update id="updateByPrimaryKey" parameterType="com.shop.pojo.Ums_member_feedback" >
+     update ums_member_feedback
+     set member_id = #{memberId,jdbcType=BIGINT},
+       question_describe = #{questionDescribe,jdbcType=VARCHAR},
+       pic = #{pic,jdbcType=VARCHAR},
+       question_type = #{questionType,jdbcType=INTEGER},
+       member_phone = #{memberPhone,jdbcType=VARCHAR}
+     where id = #{id,jdbcType=BIGINT}
+   </update>-->
+</mapper>

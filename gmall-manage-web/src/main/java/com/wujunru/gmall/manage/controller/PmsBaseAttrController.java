@@ -3,8 +3,8 @@ package com.wujunru.gmall.manage.controller;
 import com.alibaba.dubbo.config.annotation.Reference;
 import com.wujunru.gmall.bean.PmsBaseAttrInfo;
 import com.wujunru.gmall.bean.PmsBaseAttrValue;
+import com.wujunru.gmall.bean.PmsBaseSaleAttr;
 import com.wujunru.gmall.service.PmsBaseAttrService;
-import jdk.internal.org.objectweb.asm.tree.TryCatchBlockNode;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -39,4 +39,11 @@ public class PmsBaseAttrController {
      List<PmsBaseAttrValue> pmsBaseAttrValues= pmsBaseAttrService.selectByattrId(attrId);
         return  pmsBaseAttrValues;
     }
+    @RequestMapping("/baseSaleAttrList")
+    @ResponseBody
+    public List<PmsBaseSaleAttr> baseSaleAttrList(){
+       List<PmsBaseSaleAttr> pmsBaseSaleAttrs= pmsBaseAttrService.selectAll();
+        return  pmsBaseSaleAttrs;
+    }
+
 }

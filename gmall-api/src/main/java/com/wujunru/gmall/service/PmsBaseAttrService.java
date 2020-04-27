@@ -2,6 +2,8 @@ package com.wujunru.gmall.service;
 
 import com.wujunru.gmall.bean.PmsBaseAttrInfo;
 import com.wujunru.gmall.bean.PmsBaseAttrValue;
+import com.wujunru.gmall.bean.PmsBaseSaleAttr;
+import com.wujunru.gmall.bean.PmsProductSaleAttr;
 
 import java.util.List;
 
@@ -18,5 +20,9 @@ public interface PmsBaseAttrService {
      * 查询出属性值
      */
     public List<PmsBaseAttrValue> selectByattrId(String attrId);
-
+    /**
+     *查出销售属性
+     * @return
+     */
+    public List<PmsBaseSaleAttr> selectAll();
 }

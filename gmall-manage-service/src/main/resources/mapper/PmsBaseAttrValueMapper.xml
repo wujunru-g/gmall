@@ -11,9 +11,6 @@
     id, value_name,attr_id,is_enabled
   </sql>
     <insert id="insertSelectiveValue" parameterType="com.wujunru.gmall.bean.PmsBaseAttrValue" >
-       <!-- <selectKey keyProperty="id" order="AFTER" resultType="java.lang.Integer">
-            SELECT LAST_INSERT_ID()
-        </selectKey>-->
         insert into pms_base_attr_value
         <trim prefix="(" suffix=")" suffixOverrides="," >
             <if test="id != null" >

@@ -34,6 +34,7 @@ public class PmsBasecatalogController {
     @RequestMapping("/getCatalog3")
     @ResponseBody
     public List<PmsBasecatalog3> getCatalog3(String catalog2Id){
+
         List<PmsBasecatalog3> pmsBasecatalog3s = pmsBasecatalogService.selectBycatalog2Id(catalog2Id);
         return  pmsBasecatalog3s;
     }
