@@ -93,4 +93,10 @@ public class spuServiceImpl  implements spuService {
         List<PmsProductImage> pmsProductImages= pmsProductImageMapper.selectImgByProductId(pmsProductImage);
         return pmsProductImages;
     }
+
+    @Override
+    public List<PmsProductSaleAttr> selectSpuCheckBysku(String productId ,String skuId) {
+        List<PmsProductSaleAttr> pmsProductSaleAttrList =pmsProductSaleAttrMapper.selectSpuCheckBysku(productId,skuId);
+        return pmsProductSaleAttrList;
+    }
 }

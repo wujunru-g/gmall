@@ -12,6 +12,12 @@
     <sql id="Base_Column_List" >
     id, sku_id,img_name,img_url,spu_img_id,is_default
   </sql>
+    <select id="selectImgBySkuId" resultMap="BaseResultMap" parameterType="com.wujunru.gmall.bean.PmsSkuImage" >
+        select
+        <include refid="Base_Column_List" />
+        from pms_sku_image
+        where sku_id = #{skuId,jdbcType=BIGINT}
+    </select>
     <insert id="insertSelectiveSkuImage" parameterType="com.wujunru.gmall.bean.PmsSkuImage">
         insert into pms_sku_image
         <trim prefix="(" suffix=")" suffixOverrides="," >
@@ -55,12 +61,7 @@
             </if>
         </trim>
     </insert>
-<!--    <select id="selectImgByProductId" resultMap="BaseResultMap" parameterType="com.wujunru.gmall.bean.PmsProductImage" >
-        select
-        <include refid="Base_Column_List" />
-        from pms_product_image
-        where product_id = #{productId,jdbcType=BIGINT}
-    </select>-->
+
     <!--  <update id="updateByPrimaryKeySelective" parameterType="com.wujunru.gmall.bean.PmsBaseAttrValue" >
          update pms_base_attr_info
          <set >

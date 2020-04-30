@@ -12,6 +12,7 @@ import com.wujunru.gmall.manage.mapper.PmsSkuInfoMapper;
 import com.wujunru.gmall.manage.mapper.PmsSkuSaleAttrValueMapper;
 import com.wujunru.gmall.service.PmsSkuService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.context.request.NativeWebRequest;
 
 import java.util.List;
 
@@ -62,4 +63,16 @@ public class PmsSkuServiceImpl implements PmsSkuService {
             return SUCCESS;
         }
     }
+
+    @Override
+    public PmsSkuInfo selectById(PmsSkuInfo pmsSkuInfo) {
+        PmsSkuInfo pmsSkuInfos= pmsSkuInfoMapper.selectById(pmsSkuInfo);
+        //根据skuID 查出 图片集合放入PmsSkuInfo中
+        PmsSkuImage pmsSkuImage= new PmsSkuImage();
+        pmsSkuImage.setSkuId(pmsSkuInfo.getId());
+        List<PmsSkuImage> pmsSkuImageList= pmsSkuImageMapper.selectImgBySkuId(pmsSkuImage);
+        pmsSkuInfos.setSkuImageList(pmsSkuImageList);
+        return pmsSkuInfos;
+    }
+
 }

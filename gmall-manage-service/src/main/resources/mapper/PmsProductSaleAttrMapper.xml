@@ -1,11 +1,14 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.wujunru.gmall.manage.mapper.PmsProductSaleAttrMapper" >
-    <resultMap id="BaseResultMap" type="com.wujunru.gmall.bean.PmsProductSaleAttr" >
+    <resultMap id="BaseResultMap" type="com.wujunru.gmall.bean.PmsProductSaleAttr">
         <id column="id" property="id" jdbcType="BIGINT" />
         <result column="product_id" property="productId" jdbcType="BIGINT" />
         <result column="sale_attr_id" property="saleAttrId" jdbcType="VARCHAR" />
         <result column="sale_attr_name" property="saleAttrName" jdbcType="VARCHAR" />
+       <!-- 这里是实体类中的一个集合 aotumapping="true" 属于自动封装 -->
+        <collection property="spuSaleAttrValueList"  ofType="com.wujunru.gmall.bean.PmsProductSaleAttrValue" autoMapping="true">
+        </collection>
     </resultMap>
     <sql id="Base_Column_List" >
     id, product_id,sale_attr_id,sale_attr_name
@@ -16,6 +19,19 @@
             from pms_product_sale_attr
             where product_id = #{productId,jdbcType=BIGINT}
         </select>
+    <select id="selectSpuCheckBysku" resultMap="BaseResultMap" >
+        SELECT
+         a.*, b.*,
+        IF
+            ( c.sku_id, 1, 0 ) AS isChecked
+        FROM
+            pms_product_sale_attr a
+            INNER JOIN pms_product_sale_attr_value b ON a.product_id = b.product_id
+            AND a.sale_attr_id = b.sale_attr_id
+            AND a.product_id = #{productId}
+            LEFT JOIN pms_sku_sale_attr_value c ON b.id = c.sale_attr_value_id
+            AND c.sku_id =  #{skuId}
+    </select>
 
     <insert id="insertSelectiveSpuSale" parameterType="com.wujunru.gmall.bean.PmsProductSaleAttr">
         insert into pms_product_sale_attr

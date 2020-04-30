@@ -13,7 +13,7 @@ public class PmsSkuInfo implements Serializable {
 
     String id;
 
-    String spuId;
+    String spuId; //ProductId
 
     BigDecimal price;
 
