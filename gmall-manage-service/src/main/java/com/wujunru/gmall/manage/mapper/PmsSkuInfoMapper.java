@@ -7,4 +7,5 @@ import java.util.List;
 public interface PmsSkuInfoMapper {
     public Integer insertSelectiveSkuInfo(PmsSkuInfo pmsSkuInfo);
     public PmsSkuInfo selectById(PmsSkuInfo pmsSkuInfo);
+    public List<PmsSkuInfo> selectSpuHash(String spuId);
 }

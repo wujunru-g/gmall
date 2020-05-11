@@ -1,4 +1,4 @@
-package com.wujunru.gmall.manage;
+package com.wujunru.gmall;
 
 import com.alibaba.dubbo.config.spring.context.annotation.EnableDubbo;
 import org.mybatis.spring.annotation.MapperScan;

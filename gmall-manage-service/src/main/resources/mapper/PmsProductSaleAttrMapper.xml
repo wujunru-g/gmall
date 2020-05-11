@@ -8,6 +8,7 @@
         <result column="sale_attr_name" property="saleAttrName" jdbcType="VARCHAR" />
        <!-- 这里是实体类中的一个集合 aotumapping="true" 属于自动封装 -->
         <collection property="spuSaleAttrValueList"  ofType="com.wujunru.gmall.bean.PmsProductSaleAttrValue" autoMapping="true">
+            <result column="sav_id" property="id" jdbcType="BIGINT" />
         </collection>
     </resultMap>
     <sql id="Base_Column_List" >
@@ -21,7 +22,7 @@
         </select>
     <select id="selectSpuCheckBysku" resultMap="BaseResultMap" >
         SELECT
-         a.*, b.*,
+          a.*, b.*,b.id as  sav_id,
         IF
             ( c.sku_id, 1, 0 ) AS isChecked
         FROM

@@ -19,4 +19,8 @@ public interface PmsSkuService {
      * @return
      */
     public PmsSkuInfo selectById(PmsSkuInfo pmsSkuInfo);
+    /**
+     * 得到销售属性切换的hash表
+     */
+    public String  selectSpuHash(String spuId);
 }

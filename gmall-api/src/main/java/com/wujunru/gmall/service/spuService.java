@@ -32,4 +32,5 @@ public interface spuService {
      * 查询商品销售属性与销售属性值
      */
     public List<PmsProductSaleAttr> selectSpuCheckBysku(String productId ,String skuId);
+
 }
