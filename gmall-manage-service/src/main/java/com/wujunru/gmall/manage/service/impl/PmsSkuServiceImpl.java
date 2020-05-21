@@ -14,7 +14,6 @@ import com.wujunru.gmall.manage.mapper.PmsSkuSaleAttrValueMapper;
 import com.wujunru.gmall.service.PmsSkuService;
 import com.wujunru.gmall.utils.RedisUtil;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.context.request.NativeWebRequest;
 import redis.clients.jedis.Jedis;
 
 import java.util.HashMap;
@@ -88,7 +87,7 @@ public class PmsSkuServiceImpl implements PmsSkuService {
 
     @Override
     public PmsSkuInfo selectById(PmsSkuInfo pmsSkuInfo) {
-        System.err.println(Thread.currentThread().getName()+"进入商品详情页面");
+               System.err.println(Thread.currentThread().getName()+"进入商品详情页面");
         String skuId=pmsSkuInfo.getId();
         String skuKey="sku:"+skuId+":info";
         String skuKeyLock="sku:"+skuId+":lock";
@@ -156,5 +155,6 @@ public class PmsSkuServiceImpl implements PmsSkuService {
         //将sku属性值hash表放到页面  转成json字符串
         return JSON.toJSONString(Skumap);
     }
+
 
 }
